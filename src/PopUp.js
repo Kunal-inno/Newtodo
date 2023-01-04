@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./PopUp.css";
+import Time from "./Time";
 
-const PopUp = ({ AddInput,editItem,EditInput} ) => {
+const PopUp = ({ AddInput,editItem,EditInput,cancleBtn} ) => {
   const [inputData, setInputData] = useState(editItem ? editItem.name : "");
 
   console.log(editItem)
@@ -18,6 +19,9 @@ const PopUp = ({ AddInput,editItem,EditInput} ) => {
           onChange={(e) => setInputData(e.target.value)}
         ></input>
         <button onClick={()=> editItem ? EditInput({ ...editItem, name: inputData}) :  AddInput(inputData)}>Done</button>
+        <button className="close-btn" onClick={()=>cancleBtn()} >X</button>
+        
+      <Time/>
       </div>
       
     </div>

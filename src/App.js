@@ -75,6 +75,13 @@ const App = () => {
 
   }
 
+  // cancle button 
+
+  const cancleBtn =()=>{
+    setshow(false);
+
+  }
+
 
   return (
     <>
@@ -89,7 +96,7 @@ const App = () => {
           timeShow={timeShow}
         />
       </div>
-      {show ? <PopUp AddInput={AddInput} /> : null}
+      {show ? <PopUp AddInput={AddInput} cancleBtn={cancleBtn}/> : null}
       {showEditPop ? (
         <PopUp AddInput={AddInput} EditInput={EditInput} editItem={editItem} />
       ) : null}
