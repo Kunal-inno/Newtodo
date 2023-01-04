@@ -1,0 +1,19 @@
+.plus_Sign{
+    color: blue;
+    font-size: 2.2rem;
+    margin-top: 8%;
+    cursor: pointer;
+}
+.header_div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 19%;
+}
+.today_heading{
+    margin-top: 8%;
+}
+form{
+    margin-top: 8%;
+
+
+}

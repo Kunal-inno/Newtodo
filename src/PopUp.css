@@ -1,0 +1,11 @@
+.popUpwraper {
+        width: 50%;
+        height: 25%;
+        background-color: #555555;
+        position: fixed;
+        top: 4rem;
+        left: 18rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
