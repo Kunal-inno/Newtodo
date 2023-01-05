@@ -32,9 +32,9 @@ const App = () => {
 
   // edit pop up
 
-  const [showEditPop, setshowEditPop] = useState(false);
+  // const [showEditPop, setshowEditPop] = useState(false);
   const setshowEdit = () => {
-    setshowEditPop(!showEditPop);
+    setshow(!show);
   };
 
   // edit portion
@@ -71,7 +71,7 @@ const App = () => {
   // cancle button of edit todo
 
   const cancleBtnEdit = () => {
-    setshowEditPop(false);
+    setshow(false);
   };
 
   return (
@@ -88,9 +88,7 @@ const App = () => {
         />
       </div>
 
-      {show ? (
-        <PopUp AddInput={AddInput} cancleBtn={cancleBtn} />
-      ) : showEditPop ? (
+      {show && (
         <PopUp
           AddInput={AddInput}
           cancleBtn={cancleBtn}
@@ -98,7 +96,7 @@ const App = () => {
           cancleBtnEdit={cancleBtnEdit}
           editItem={editItem}
         />
-      ) : null}
+      )}
 
       {/* <Time/> */}
     </>

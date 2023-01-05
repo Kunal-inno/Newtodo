@@ -34,6 +34,9 @@ const PopUp = ({ AddInput, editItem, EditInput, cancleBtn, cancleBtnEdit }) => {
           X
         </button>
 
+        <input type="time"  name="appt"
+       min="00:00" max="24:00" required ></input>
+
         {/* <Time/> */}
       </div>
     </div>
