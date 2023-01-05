@@ -21,8 +21,6 @@ const App = () => {
 
   const AddInput = (inputData) => {
     settodos([...todos, { id: Math.random(), name: inputData, check: false }]);
-    console.log("kokoko");
-    console.log(todos);
   };
 
   // delete portion
@@ -30,7 +28,6 @@ const App = () => {
   const removeTodo = (id) => {
     const newlist = todos.filter((todos) => todos.id !== id);
     settodos(newlist);
-    console.log(id);
   };
 
   // edit pop up
@@ -90,12 +87,14 @@ const App = () => {
           timeShow={timeShow}
         />
       </div>
-      {show ? <PopUp AddInput={AddInput} cancleBtn={cancleBtn} /> : null}
-      {showEditPop ? (
+
+      {show ? (
+        <PopUp AddInput={AddInput} cancleBtn={cancleBtn} />
+      ) : showEditPop ? (
         <PopUp
           AddInput={AddInput}
-          EditInput={EditInput}
           cancleBtn={cancleBtn}
+          EditInput={EditInput}
           cancleBtnEdit={cancleBtnEdit}
           editItem={editItem}
         />

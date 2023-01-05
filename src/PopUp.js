@@ -5,8 +5,6 @@ import "./PopUp.css";
 const PopUp = ({ AddInput, editItem, EditInput, cancleBtn, cancleBtnEdit }) => {
   const [inputData, setInputData] = useState(editItem ? editItem.name : "");
 
-  console.log(editItem);
-
   return (
     <div className="popUpwraper">
       <div>
