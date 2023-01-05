@@ -4,7 +4,6 @@ import PopUp from "./PopUp";
 import Todolist from "./Todolist";
 import "./App.css";
 
-
 const local_Api = [
   { id: 0, name: "Book flight", check: true },
   { id: 1, name: "Book hotel", check: true },
@@ -45,8 +44,6 @@ const App = () => {
   const [editItem, seteditItem] = useState(null);
 
   const editTodo = (task) => {
-    
-
     seteditItem(task);
     // setInputData(task.name)
   };
@@ -55,33 +52,30 @@ const App = () => {
 
   const EditInput = (editItem) => {
     // let update = todos.splice(todos.indexOf(editItem.id), 0, editItem);
-    const index = todos.findIndex(Object=>{
-      return Object.id=== editItem.id
-    })
-    console.log(index)
-    console.log(editItem)
+    const index = todos.findIndex((Object) => {
+      return Object.id === editItem.id;
+    });
+    console.log(index);
+    console.log(editItem);
 
-
-    todos[index] = editItem
-    console.log(todos)
-    settodos([ ...todos]);
-  
+    todos[index] = editItem;
+    console.log(todos);
+    settodos([...todos]);
   };
-  
 
+  const timeShow = () => {};
 
-  
-  const timeShow =()=>{
+  // cancle button of add todo
 
-  }
-
-  // cancle button 
-
-  const cancleBtn =()=>{
+  const cancleBtn = () => {
     setshow(false);
+  };
 
-  }
+  // cancle button of edit todo
 
+  const cancleBtnEdit = () => {
+    setshowEditPop(false);
+  };
 
   return (
     <>
@@ -96,17 +90,18 @@ const App = () => {
           timeShow={timeShow}
         />
       </div>
-      {show ? <PopUp AddInput={AddInput} cancleBtn={cancleBtn}/> : null}
+      {show ? <PopUp AddInput={AddInput} cancleBtn={cancleBtn} /> : null}
       {showEditPop ? (
-        <PopUp AddInput={AddInput} EditInput={EditInput} editItem={editItem} />
+        <PopUp
+          AddInput={AddInput}
+          EditInput={EditInput}
+          cancleBtn={cancleBtn}
+          cancleBtnEdit={cancleBtnEdit}
+          editItem={editItem}
+        />
       ) : null}
-      
 
       {/* <Time/> */}
-
-      
-
-      
     </>
   );
 };

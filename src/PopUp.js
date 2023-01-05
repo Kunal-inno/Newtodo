@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import "./PopUp.css";
-import Time from "./Time";
+// import Time from "./Time";
 
-const PopUp = ({ AddInput,editItem,EditInput,cancleBtn} ) => {
+const PopUp = ({ AddInput, editItem, EditInput, cancleBtn, cancleBtnEdit }) => {
   const [inputData, setInputData] = useState(editItem ? editItem.name : "");
 
-  console.log(editItem)
-
+  console.log(editItem);
 
   return (
     <div className="popUpwraper">
@@ -18,12 +17,27 @@ const PopUp = ({ AddInput,editItem,EditInput,cancleBtn} ) => {
           value={inputData}
           onChange={(e) => setInputData(e.target.value)}
         ></input>
-        <button onClick={()=> editItem ? EditInput({ ...editItem, name: inputData}) :  AddInput(inputData)}>Done</button>
-        <button className="close-btn" onClick={()=>cancleBtn()} >X</button>
-        
-      <Time/>
+        <button
+          onClick={() =>
+            editItem
+              ? EditInput({ ...editItem, name: inputData })
+              : AddInput(inputData)
+          }
+        >
+          Done
+        </button>
+        <button
+          className="close-btn"
+          onClick={() => {
+            cancleBtn();
+            cancleBtnEdit();
+          }}
+        >
+          X
+        </button>
+
+        {/* <Time/> */}
       </div>
-      
     </div>
   );
 };
