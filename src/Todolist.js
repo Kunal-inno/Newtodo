@@ -29,6 +29,8 @@ const Todolist = ({
               {/* task list  */}
 
               <p className="todo_text">{task.name}</p>
+              <p className="todo_text">{task.time}</p>
+              <p className="todo_text">{task.date}</p>
 
               {/* delete btn  */}
 
@@ -47,12 +49,16 @@ const Todolist = ({
 
               {/* TIME  */}
 
-              <div className="work_delay_teller"></div>
+              <div className="work_delay_teller">
+
+              </div>
+            
 
               {/* <Time/> */}
 
               <p></p>
             </div>
+            <hr/>
           </div>
         );
       })}

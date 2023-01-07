@@ -5,9 +5,9 @@ import Todolist from "./Todolist";
 import "./App.css";
 
 const local_Api = [
-  { id: 0, name: "Book flight", check: true },
-  { id: 1, name: "Book hotel", check: true },
-  { id: 2, name: "Book cab", check: false },
+  { id: 0, name: "Book flight", time:"",date:"", check: true },
+  { id: 1, name: "Book hotel",time:"",date:"", check: true },
+  { id: 2, name: "Book cab",time:"",date:"", check: false },
 ];
 const App = () => {
   const [show, setshow] = useState(false);
@@ -15,12 +15,27 @@ const App = () => {
     setshow(!show);
   };
 
+  
+
   // add portion
 
   const [todos, settodos] = useState(local_Api);
 
   const AddInput = (inputData) => {
-    settodos([...todos, { id: Math.random(), name: inputData, check: false }]);
+    console.log(inputData);
+    settodos([...todos, { id: todos.length+1, name: inputData.input, check: false, date: inputData.date , time : inputData.time }]);
+    // const form=()=>{
+    //   if(inputData===""){
+        
+    //     alert("please enter somthing");
+    //   }else{
+    //     console.log("ok")
+        
+    //   }
+    // }
+    // form()
+    setshow(false)
+    
   };
 
   // delete portion
@@ -84,7 +99,6 @@ const App = () => {
           AddInput={AddInput}
           editTodo={editTodo}
           setshowEdit={setshowEdit}
-          
           timeShow={timeShow}
         />
       </div>

@@ -1,5 +1,8 @@
 .todolist{
     display: flex;
+    margin-bottom: 5.5%;
+    margin-top: 4.5;
+    justify-content: space-between;
 }
 .delete-btn{
     color: rgb(203, 57, 57);
@@ -22,6 +25,10 @@
     animation-name: blackWhite;  
     animation-iteration-count: infinite;  
     animation-duration: 345600s; 
+}
+hr{
+    margin-left: 8%;
+    margin-bottom: 6%;
 }
 @keyframes blackWhite {  
     0% { background-color: red; }
