@@ -5,9 +5,9 @@ import Todolist from "./Todolist";
 import "./App.css";
 
 const local_Api = [
-  { id: 0, name: "Book flight", time:"",date:"", check: true },
-  { id: 1, name: "Book hotel",time:"",date:"", check: true },
-  { id: 2, name: "Book cab",time:"",date:"", check: false },
+  { id: 0, name: "Book flight", time: "", date: "", check: true },
+  { id: 1, name: "Book hotel", time: "", date: "", check: true },
+  { id: 2, name: "Book cab", time: "", date: "", check: false },
 ];
 const App = () => {
   const [show, setshow] = useState(false);
@@ -15,27 +15,23 @@ const App = () => {
     setshow(!show);
   };
 
-  
-
   // add portion
 
   const [todos, settodos] = useState(local_Api);
 
   const AddInput = (inputData) => {
-    console.log(inputData);
-    settodos([...todos, { id: todos.length+1, name: inputData.input, check: false, date: inputData.date , time : inputData.time }]);
-    // const form=()=>{
-    //   if(inputData===""){
-        
-    //     alert("please enter somthing");
-    //   }else{
-    //     console.log("ok")
-        
-    //   }
-    // }
-    // form()
-    setshow(false)
-    
+    settodos([
+      ...todos,
+      {
+        id: todos.length + 1,
+        name: inputData.input,
+        check: false,
+        date: inputData.date,
+        time: inputData.time,
+      },
+    ]);
+
+    setshow(false);
   };
 
   // delete portion
@@ -45,25 +41,18 @@ const App = () => {
     settodos(newlist);
   };
 
-  // edit pop up
 
-  // const [showEditPop, setshowEditPop] = useState(false);
-  const setshowEdit = () => {
-    setshow(!show);
-  };
 
   // edit portion
   const [editItem, seteditItem] = useState(null);
 
   const editTodo = (task) => {
     seteditItem(task);
-    // setInputData(task.name)
   };
 
   // EDIT INPUT DATA
 
   const EditInput = (editItem) => {
-    // let update = todos.splice(todos.indexOf(editItem.id), 0, editItem);
     const index = todos.findIndex((Object) => {
       return Object.id === editItem.id;
     });
@@ -75,7 +64,7 @@ const App = () => {
     settodos([...todos]);
   };
 
-  const timeShow = () => {};
+
 
   // cancle button of add todo
 
@@ -83,11 +72,7 @@ const App = () => {
     setshow(false);
   };
 
-  // cancle button of edit todo
 
-  const cancleBtnEdit = () => {
-    setshow(false);
-  };
 
   return (
     <>
@@ -98,8 +83,8 @@ const App = () => {
           removeTodo={removeTodo}
           AddInput={AddInput}
           editTodo={editTodo}
-          setshowEdit={setshowEdit}
-          timeShow={timeShow}
+          togglePopUp={setShowPop}
+          
         />
       </div>
 
@@ -108,7 +93,7 @@ const App = () => {
           AddInput={AddInput}
           cancleBtn={cancleBtn}
           EditInput={EditInput}
-          cancleBtnEdit={cancleBtnEdit}
+        
           editItem={editItem}
         />
       )}

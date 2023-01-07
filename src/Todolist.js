@@ -2,14 +2,13 @@ import React from "react";
 import "./Todolist.css";
 import { MdDelete } from "react-icons/md";
 import { AiFillEdit } from "react-icons/ai";
-// import Time from "./Time";
-// import PopUp from "./PopUp";
 
 const Todolist = ({
   todoData,
   removeTodo,
   editTodo,
-  setshowEdit,
+  togglePopUp, 
+  // setshowEdit,
   timeShow,
 }) => {
   return (
@@ -42,23 +41,19 @@ const Todolist = ({
 
               <span onClick={() => editTodo(task)}>
                 <AiFillEdit
-                  onClick={() => setshowEdit()}
+                  // onClick={() => setshowEdit()}
+                  onClick={() => togglePopUp()}
                   className="edit-btn"
                 />
               </span>
 
-              {/* TIME  */}
-
-              <div className="work_delay_teller">
-
-              </div>
-            
+              <div className="work_delay_teller"></div>
 
               {/* <Time/> */}
 
               <p></p>
             </div>
-            <hr/>
+            <hr />
           </div>
         );
       })}
