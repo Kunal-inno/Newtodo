@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import "./PopUp.css";
 
-const PopUp = ({ AddInput, editItem, EditInput, cancleBtn}) => {
+const PopUp = ({ AddInput, editItem, EditInput, cancleBtn }) => {
   const [inputData, setInputData] = useState(
     editItem
-      ? editItem.name
+      ? // ? editItem.name
+        {
+          time: editItem.time,
+          date: editItem.date,
+          input: editItem.name,
+        }
       : {
           time: "",
           date: "",
@@ -55,7 +60,12 @@ const PopUp = ({ AddInput, editItem, EditInput, cancleBtn}) => {
           <button
             onClick={() =>
               editItem
-                ? EditInput({ ...editItem, name: inputData })
+                ? EditInput({
+                    ...editItem,
+                    name: inputData.input,
+                    date: inputData.date,
+                    time: inputData.time,
+                  })
                 : AddInput(inputData)
             }
           >
@@ -65,7 +75,6 @@ const PopUp = ({ AddInput, editItem, EditInput, cancleBtn}) => {
             className="close-btn"
             onClick={() => {
               cancleBtn();
-              // cancleBtnEdit();
             }}
           >
             Close

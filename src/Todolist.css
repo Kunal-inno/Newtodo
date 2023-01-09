@@ -14,7 +14,7 @@
     cursor: pointer;
     font-size: 1.8rem;
 }
-.work_delay_teller{
+.red{
     width: 3.3vh;
     height: 3vh;
     /* background-color: red; */
@@ -22,19 +22,35 @@
     margin-right: 3%;
     margin-left: 8%;
     background-color: red;
-    animation-name: blackWhite;  
-    animation-iteration-count: infinite;  
-    animation-duration: 345600s; 
+}
+.yellow{
+    width: 3.3vh;
+    height: 3vh;
+    /* background-color: red; */
+    border-radius: 50%;
+    margin-right: 3%;
+    margin-left: 8%;
+    background-color: yellow;
+
+}
+.green{
+    width: 3.3vh;
+    height: 3vh;
+    /* background-color: red; */
+    border-radius: 50%;
+    margin-right: 3%;
+    margin-left: 8%;
+    background-color: green;
 }
 hr{
     margin-left: 8%;
     margin-bottom: 6%;
 }
-@keyframes blackWhite {  
+/* @keyframes blackWhite {  
     0% { background-color: red; }
     25% { background-color: yellow; }
     50% { background-color: green; }
     75% { background-color: black; }
     100% { background-color: black; }
-}
+} */
 

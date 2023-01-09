@@ -41,8 +41,6 @@ const App = () => {
     settodos(newlist);
   };
 
-
-
   // edit portion
   const [editItem, seteditItem] = useState(null);
 
@@ -57,14 +55,16 @@ const App = () => {
       return Object.id === editItem.id;
     });
     console.log(index);
-    console.log(editItem);
 
-    todos[index] = editItem;
-    console.log(todos);
-    settodos([...todos]);
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === editItem.id) {
+        return editItem;
+      }
+      return todo;
+    });
+
+    settodos(updatedTodos);
   };
-
-
 
   // cancle button of add todo
 
@@ -72,7 +72,7 @@ const App = () => {
     setshow(false);
   };
 
-
+  // time function
 
   return (
     <>
@@ -84,7 +84,6 @@ const App = () => {
           AddInput={AddInput}
           editTodo={editTodo}
           togglePopUp={setShowPop}
-          
         />
       </div>
 
@@ -93,7 +92,6 @@ const App = () => {
           AddInput={AddInput}
           cancleBtn={cancleBtn}
           EditInput={EditInput}
-        
           editItem={editItem}
         />
       )}
