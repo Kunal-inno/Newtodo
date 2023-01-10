@@ -14,24 +14,14 @@ const Todolist = ({
   // for date
 
   const dateObj = new Date();
-  // const month = dateObj.getUTCMonth() + 1; //months from 1-12
-  // const day = dateObj.getUTCDate();
-  // const year = dateObj.getUTCFullYear();
-
-  // const newdate = year + month + day;
-  // console.log(newdate);
-
-  // const compareDate = new Date(year, month, day);
-  // console.log(compareDate);
 
   const isBackgroundRed = (task) => {
     const currentDateTimestamp = dateObj.getTime();
     const taskDateTimestamp = new Date(task.date).getTime();
-    
-    
+
     const timeDifference = Math.abs(currentDateTimestamp - taskDateTimestamp);
     const isWithin24Hours = timeDifference > 0 && timeDifference <= 86400000;
-    
+
     if (currentDateTimestamp > taskDateTimestamp) {
       return "red";
     }
@@ -42,26 +32,6 @@ const Todolist = ({
       return "green";
     }
   };
-
-  // const isBackgroundRed = (task) => {
-
-  //   const currentDateTimestamp = dateObj.getTime();
-  //   console.log(currentDateTimestamp)
-    
-  //   const taskDateTimestamp = new Date(task.date).getTime();
-  //   console.log(taskDateTimestamp)
-
-
-  //   if (currentDateTimestamp > taskDateTimestamp) {
-  //     return "red";
-  //   }
-  //   if (currentDateTimestamp === taskDateTimestamp) {
-  //     return "yellow";
-  //   }
-  //   if (currentDateTimestamp < taskDateTimestamp) {
-  //     return "green";
-  //   }
-  // };
 
   return (
     <div>
@@ -80,7 +50,7 @@ const Todolist = ({
               {/* task list  */}
 
               <p className="todo_text">{task.name}</p>
-              
+
               {/* <p className="todo_text">{task.time}</p> */}
               <p className="todo_text">{task.date}</p>
 
@@ -115,24 +85,3 @@ const Todolist = ({
 };
 
 export default Todolist;
-// for time
-// const dateWithouthSecond = new Date();
-
-// const displayTime = dateWithouthSecond.toLocaleTimeString(
-//   navigator.language,
-//   { hour: "2-digit", minute: "2-digit" }
-// );
-// console.log(  dateWithouthSecond.toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'}))
-
-// const month = dateObj.getUTCMonth() + 1; //months from 1-12
-// const day = dateObj.getUTCDate();
-// const year = dateObj.getUTCFullYear();
-
-// const newdate = year+  month  + day;
-// console.log(newdate);
-
-// const compareDate = new Date(year, month,day);
-// console.log(compareDate)
-
-
-// const yellowCompare= (taskDateTimestamp + 86300000)
