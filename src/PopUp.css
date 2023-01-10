@@ -45,3 +45,6 @@ button{
 .close-btn{
     margin-left: 1%;
 }
+.valid{
+    color: red;
+}

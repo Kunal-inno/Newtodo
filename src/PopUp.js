@@ -17,6 +17,8 @@ const PopUp = ({ AddInput, editItem, EditInput, cancleBtn }) => {
         }
   );
 
+
+
   console.log(inputData);
 
   return (
@@ -56,6 +58,12 @@ const PopUp = ({ AddInput, editItem, EditInput, cancleBtn }) => {
           }
         ></input>
 
+        <p>{inputData.input ===""? <p className="valid" >Enter Something</p>:null}</p>
+
+        
+        {/* {...inputData.input === ""? <p className="valid" >Enter Something</p> :AddInput(inputData)} */}
+        
+
         <div className="btn-div">
           <button
             onClick={() =>
@@ -66,7 +74,8 @@ const PopUp = ({ AddInput, editItem, EditInput, cancleBtn }) => {
                     date: inputData.date,
                     time: inputData.time,
                   })
-                : AddInput(inputData)
+                // : AddInput(inputData)
+                : {...inputData.input === "" ? null :AddInput(inputData)}
             }
           >
             Done

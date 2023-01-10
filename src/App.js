@@ -30,6 +30,7 @@ const App = () => {
         time: inputData.time,
       },
     ]);
+    // {inputData.input === "" ? alert("ok") : null}
 
     setshow(false);
   };
