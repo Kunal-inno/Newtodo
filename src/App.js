@@ -4,11 +4,10 @@ import PopUp from "./PopUp";
 import Todolist from "./Todolist";
 import "./App.css";
 
-
 const local_Api = [
-  { id: 0, name: "Book flight", check: true },
-  { id: 1, name: "Book hotel", check: true },
-  { id: 2, name: "Book cab", check: false },
+  { id: 0, name: "Book flight", time: "", date: "", check: true },
+  { id: 1, name: "Book hotel", time: "", date: "", check: true },
+  { id: 2, name: "Book cab", time: "", date: "", check: false },
 ];
 const App = () => {
   const [show, setshow] = useState(false);
@@ -21,9 +20,19 @@ const App = () => {
   const [todos, settodos] = useState(local_Api);
 
   const AddInput = (inputData) => {
-    settodos([...todos, { id: Math.random(), name: inputData, check: false }]);
-    console.log("kokoko");
-    console.log(todos);
+    settodos([
+      ...todos,
+      {
+        id: todos.length + 1,
+        name: inputData.input,
+        check: false,
+        date: inputData.date,
+        time: inputData.time,
+      },
+    ]);
+    
+
+    setshow(false);
   };
 
   // delete portion
@@ -31,50 +40,40 @@ const App = () => {
   const removeTodo = (id) => {
     const newlist = todos.filter((todos) => todos.id !== id);
     settodos(newlist);
-    console.log(id);
-  };
-
-  // edit pop up
-
-  const [showEditPop, setshowEditPop] = useState(false);
-  const setshowEdit = () => {
-    setshowEditPop(!showEditPop);
   };
 
   // edit portion
   const [editItem, seteditItem] = useState(null);
 
   const editTodo = (task) => {
-    
-
     seteditItem(task);
-    // setInputData(task.name)
   };
 
   // EDIT INPUT DATA
 
   const EditInput = (editItem) => {
-    // let update = todos.splice(todos.indexOf(editItem.id), 0, editItem);
-    const index = todos.findIndex(Object=>{
-      return Object.id=== editItem.id
-    })
-    console.log(index)
-    console.log(editItem)
+    const index = todos.findIndex((Object) => {
+      return Object.id === editItem.id;
+    });
+    console.log(index);
 
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === editItem.id) {
+        return editItem;
+      }
+      return todo;
+    });
 
-    todos[index] = editItem
-    console.log(todos)
-    settodos([ ...todos]);
-  
+    settodos(updatedTodos);
   };
-  
 
+  // cancle button of add todo
 
-  
-  const timeShow =()=>{
+  const cancleBtn = () => {
+    setshow(false);
+  };
 
-  }
-
+  // time function
 
   return (
     <>
@@ -85,21 +84,20 @@ const App = () => {
           removeTodo={removeTodo}
           AddInput={AddInput}
           editTodo={editTodo}
-          setshowEdit={setshowEdit}
-          timeShow={timeShow}
+          togglePopUp={setShowPop}
         />
       </div>
-      {show ? <PopUp AddInput={AddInput} /> : null}
-      {showEditPop ? (
-        <PopUp AddInput={AddInput} EditInput={EditInput} editItem={editItem} />
-      ) : null}
-      
+
+      {show && (
+        <PopUp
+          AddInput={AddInput}
+          cancleBtn={cancleBtn}
+          EditInput={EditInput}
+          editItem={editItem}
+        />
+      )}
 
       {/* <Time/> */}
-
-      
-
-      
     </>
   );
 };
