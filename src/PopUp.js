@@ -17,7 +17,12 @@ const PopUp = ({ AddInput, editItem, EditInput, cancleBtn }) => {
         }
   );
 
+
   console.log(inputData);
+  // const valid=()=>{
+  //   return ({...inputData.input === ""? <p className="valid" >Enter Something</p> :AddInput(inputData)})
+
+  // }
 
   return (
     <div className="popUpwraper">
@@ -50,17 +55,18 @@ const PopUp = ({ AddInput, editItem, EditInput, cancleBtn }) => {
           placeholder="Add your task."
           className="input-area"
           value={inputData.input}
+          onBlur={()=>{}}
           name="input"
           onChange={(e) =>
             setInputData({ ...inputData, input: e.target.value })
           }
         ></input>
 
-        <p>
-          {inputData.input === "" ? (
-            <p className="valid">Enter Something</p>
-          ) : null}
-        </p>
+        {/* <p>{inputData.input ===""? <p className="valid" >Enter Something</p>:null}</p> */}
+
+        {/* <div>{valid()}</div> */}
+
+        {/* {...inputData.input === ""? <p className="valid" >Enter Something</p> :AddInput(inputData)} */}
 
         <div className="btn-div">
           <button
@@ -72,8 +78,8 @@ const PopUp = ({ AddInput, editItem, EditInput, cancleBtn }) => {
                     date: inputData.date,
                     time: inputData.time,
                   })
-                : // : AddInput(inputData)
-                  { ...(inputData.input === "" ? null : AddInput(inputData)) }
+                : AddInput(inputData)
+                // : {...inputData.input === "" ? alert("ENTER SOMETHING") :AddInput(inputData)}
             }
           >
             Done
@@ -93,3 +99,5 @@ const PopUp = ({ AddInput, editItem, EditInput, cancleBtn }) => {
 };
 
 export default PopUp;
+
+// ()=>{ <p>{inputData.input ===""? <p className="valid" >Enter Something</p>:null}</p>}
